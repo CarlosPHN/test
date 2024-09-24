@@ -2,15 +2,9 @@
 #include <iostream>
 #include "watchtime.h"
 
-#ifdef level
-    #define OPTIMIZE __attribute__((optimize(level)))
-#else
-    #define OPTIMIZE
-#endif
-
 const int reps = 100000000; // number of times a test is repeated (for a single measurement)
 
-void test1(int N) {
+void test(int N) {
     int i = 0;
     while (i < N) {
         i++;
@@ -18,6 +12,7 @@ void test1(int N) {
 }
 
 void stats(unsigned time) {
+    float ttestime;
     testtime = ((float)time / (float)reps);
     testtime *= 1000000; // ms to ns
     printf(",%.2f", testtime);
@@ -25,7 +20,7 @@ void stats(unsigned time) {
 
 int main(int argc, char **argv) {
     int i, j;
-    unsigned times[nms], aux;
+    unsigned aux;
     Watchtime time;
 
     int N;
@@ -35,14 +30,12 @@ int main(int argc, char **argv) {
         N = 50;
     }
 
-    printf("\"Loop condition vs. Break sentence\"");
     printf(",\"%s\"", argv[0]);
     printf(",\"%d\"", N);
-    printf(",%s", level);
 
     time.startTime();
     for (j = 0; j < reps; j++) {
-        test1(N);
+        test(N);
     }
     aux = time.getTime();
 
