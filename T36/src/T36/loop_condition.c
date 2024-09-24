@@ -6,14 +6,13 @@ const int reps = 100000000; // number of times a test is repeated (for a single 
 
 void test(int N) {
     int i = 0;
-    while (true) {
+    while (i < N) {
         i++;
-        if (i >= N) break;
     }
 }
 
 void stats(unsigned time) {
-    float ttestime;
+    float testtime;
     testtime = ((float)time / (float)reps);
     testtime *= 1000000; // ms to ns
     printf(",%.2f", testtime);

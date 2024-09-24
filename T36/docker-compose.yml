@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  cpp_test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["./break_sentence"]
