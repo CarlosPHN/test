@@ -5,4 +5,4 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["./exec/break_sentence"]
+    command: ["sh", "measure.sh"]

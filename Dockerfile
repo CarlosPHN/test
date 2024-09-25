@@ -7,16 +7,14 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /usr/src/app
 
-COPY ./Techniques ./Techniques
-
-COPY ./RAPL ./RAPL
-
-COPY ./measure.sh ./
+COPY ./Data .
 
 WORKDIR /usr/src/app/Techniques
 
 RUN make
 
 WORKDIR /usr/src/app
+
+RUN chmod -R +x measure.sh
 
 CMD ["sh", "measure.sh"]
