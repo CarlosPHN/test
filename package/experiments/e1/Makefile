@@ -1,6 +1,6 @@
 DIROBJ := obj/
 DIREXE := exec/
-DIRHEA := ../include
+DIRHEA := include/
 DIRSRC := src/
 
 CFLAGS := -I $(DIRHEA)

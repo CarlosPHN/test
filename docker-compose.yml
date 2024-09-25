@@ -1,8 +1,11 @@
 version: '3.8'
 
 services:
-  cpp_test:
+  measurement:
     build:
       context: .
-      dockerfile: Dockerfile
-    command: ["sh", "measure.sh"]
+      dockerfile: dockerfile
+    command: ["sh", "/package/measure.sh"]
+    volumes:
+      - ./package:/package
+      - /lib/modules:/lib/modules
