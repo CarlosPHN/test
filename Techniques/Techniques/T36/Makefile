@@ -1,11 +1,10 @@
 DIROBJ := obj/
 DIREXE := exec/
-DIRHEA := include/
+DIRHEA := ../include
 DIRSRC := src/
 
-CFLAGS := -I$(DIRHEA) -c -Wall -ansi
-LDFLAGS := -lglut -lGLU -lGL
-CC := gcc
+CFLAGS := -I $(DIRHEA)
+CC := g++
 
 SRCFILES := $(patsubst $(DIRSRC)%.c,%,$(wildcard $(DIRSRC)*.c))
 
@@ -17,10 +16,10 @@ dirs:
 	mkdir -p $(DIROBJ) $(DIREXE)
 
 $(SRCFILES): %: $(DIROBJ)%.o
-	$(CC) -o $(DIREXE)$@ $^ $(LDFLAGS)
+	$(CC) -o $(DIREXE)$@ $^
 
 $(DIROBJ)%.o: $(DIRSRC)%.c
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 clean:
 	rm -rf *~ core $(DIROBJ) $(DIREXE) $(DIRHEA)*~ $(DIRSRC)*~

@@ -7,8 +7,16 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /usr/src/app
 
-COPY ./src/T36/ .
+COPY ./Techniques ./Techniques
+
+COPY ./RAPL ./RAPL
+
+COPY ./measure.sh ./
+
+WORKDIR /usr/src/app/Techniques
 
 RUN make
 
-CMD ["./exec/break_sentence"]
+WORKDIR /usr/src/app
+
+CMD ["sh", "measure.sh"]
