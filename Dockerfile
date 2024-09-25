@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     kmod \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /package
+WORKDIR /package/experiments
 
 RUN make
 

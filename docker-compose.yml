@@ -1,11 +1,10 @@
-version: '3.8'
-
 services:
   measurement:
     build:
       context: .
-      dockerfile: dockerfile
-    command: ["sh", "/package/measure.sh"]
+      dockerfile: Dockerfile
+    command: ["sh", "/package/experiments/measure.sh"]
     volumes:
       - ./package:/package
       - /lib/modules:/lib/modules
+    privileged: true 
