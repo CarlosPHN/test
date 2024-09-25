@@ -5,9 +5,3 @@ RUN apt-get update && apt-get install -y \
     make \
     kmod \
     && rm -rf /var/lib/apt/lists/*
-
-WORKDIR /package/experiments
-
-RUN make
-
-CMD ["sh", "measure.sh"]

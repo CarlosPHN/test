@@ -27,7 +27,7 @@ int main (int argc, char **argv)
 //  strcpy(command, "./" );
   strcat(command,argv[1]);
   //Language name
-  strcpy(path,"../");
+  strcpy(path,"/package/");
 
 
   strcpy(language,argv[2]);
